@@ -16,19 +16,25 @@
 
       <div class="row">
         <div class="col-sm-5">
-        <%= display_profile_picture(@user, 180, 180) %>
-        <% if @user === current_user %>
-          <div class="text-center"><%= link_to "Change Picture",
-                      upload_image_link(@user, delete_link, :profile_picture),
-                      :remote => true  %>
-                      </div>
-                      <% end %>
+          <%= display_profile_picture(@user, 180, 180) %>
+          <div class="text-center" style="width:180px;">
+              <%= link_to "Change Picture", upload_image_link(@user, delete_link, :profile_picture), :remote => true  %>
+          </div>
         </div>
 
         <div class="col-sm-7">
           <div class="mb-20 text-color-gray">
 
-            <div class="fs-18 text-color-blue"><%= link_to @user.display_name, profile_path(username: @user.username) %></div>
+            <div class="fs-18 text-color-blue pull-left">
+              <%= link_to @user.display_name, profile_path(username: @user.username) %>
+            </div>
+
+            <% if @user.is_admin? %>
+              <span class="pull-left ml-20 mt-5 label label-<%= @user.is_super_admin? ? "danger" : "warning" %>">
+                <%= @user.is_super_admin? ? "Super Admin" : "Admin" %>
+              </span>
+            <% end %>
+            <div class="cl"></div>
 
             <div class="fs-14 text-color-gray"><%= @user.display_designation %></div>
 

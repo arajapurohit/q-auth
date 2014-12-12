@@ -170,10 +170,8 @@ RSpec.describe User, :type => :model do
 
     User.create(:name =>"Ram", :email =>"something.123@domain.com");
     User.create(:name =>"Ram1", :email =>"something.1234@domain.com");
-    User.create(:name =>"Ram2", :email =>"something.1235@domain.com");
-    User.create(:name =>"Ram3", :email =>"something.1236@domain.com");
-    expect(Designation.search("something.123@domain.com")).to be_truthy
-    expect(Designation.search("Some data")).to be_empty
+    expect(User.search("something.123@domain.com")).to be_truthy
+    expect(User.search("Some data")).to be_empty
   end
 
 end

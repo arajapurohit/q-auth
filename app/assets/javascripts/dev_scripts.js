@@ -10,7 +10,6 @@ function cropImage() {
         minWidth: 116,
         data: originalData,
         done: function(data) {
-          console.log(data);
           $("#image_crop_x").val(data.x);
           $("#image_crop_y").val(data.y);
           $("#image_crop_w").val(data.width);
@@ -19,7 +18,6 @@ function cropImage() {
       });
     }).on("hidden.bs.modal", function() {
       originalData = $image.cropper("getData");
-      console.log(originalData);
       $image.cropper("destroy");
     });
 }
@@ -34,7 +32,6 @@ function cropNewImage() {
       minWidth: 116,
       data: originalData,
       done: function(data) {
-        console.log(data);
         $("#image_crop_x").val(data.x);
         $("#image_crop_y").val(data.y);
         $("#image_crop_w").val(data.width);
@@ -62,7 +59,6 @@ function ProfilePictureupload(change_url){
       }
     },
     done: function (e, data) {
-      console.log(data.url);
       $image = $("div#div_modal_generic").find(".modal-body-main img");
       $.each(data.result, function (index, result) {
         $("form#user_form_photo").attr("action", result.url);
@@ -73,8 +69,10 @@ function ProfilePictureupload(change_url){
         // $("form#user_form_photo img").parent().removeAttr( "class" );
         // $("form#user_form_photo img").parent().parent().removeClass( "col-xs-4 col-md-offset-4" ).addClass( "ml-10 mr-10" );
         if ($("#image_crop_x").val()) {
-            $image.cropper("setImgSrc", result.large_url);
-            $image.cropper("setData", {});
+          // $image.dragger.minWidth = 116;
+          // $image.dragger.minHeight = 116;
+          $image.cropper("setImgSrc", result.large_url);
+          $image.cropper("setData", {});
         } else {
           cropNewImage();
         }

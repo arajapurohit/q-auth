@@ -9,56 +9,56 @@
     :role => "form",
     :multipart => true}) do |f| %>
 
-    <div class="modal-body">
+  <div class="modal-body">
 
-      <%= @image.errors[:base].to_sentence %>
+    <%= @image.errors[:base].to_sentence %>
 
-      <%= hidden_field_tag :faction, @image.new_record? ? admin_images_path : admin_image_path(@image) %>
-      <%= hidden_field_tag :fmethod, @image.new_record? ? "POST" : "PUT" %>
+    <%= hidden_field_tag :faction, @image.new_record? ? admin_images_path : admin_image_path(@image) %>
+    <%= hidden_field_tag :fmethod, @image.new_record? ? "POST" : "PUT" %>
 
-      <%#= hidden_field_tag :imageable_id, params[:imageable_id] %>
-      <%#= hidden_field_tag :imageable_type, params[:imageable_type] %>
-      <%= hidden_field_tag :redirect_url, params[:redirect_url] %>
-      <%= hidden_field_tag :image_type, params[:image_type] %>
-      <% %w[x y w h].each do |attribute| %>
+    <%= hidden_field_tag :imageable_id, params[:imageable_id] %>
+    <%= hidden_field_tag :imageable_type, params[:imageable_type] %>
+    <%= hidden_field_tag :redirect_url, params[:redirect_url] %>
+    <%= hidden_field_tag :image_type, params[:image_type] %>
+
+    <% %w[x y w h].each do |attribute| %>
       <%= f.hidden_field "crop_#{attribute}" %>
-      <% end %>
-
-
-      <div class="add-photos-path ml-40 mt-20 mb-20">
-        <div class="row">
-          <div>
-            <% if @image.imageable.present? && @image.imageable.profile_picture.present? %>
-            <div class="ml-10 mr-10">
-              <%= image_tag @image.imageable.profile_picture.image.url %>
-            </div>
-            <% else %>
-            <div class="col-xs-4 col-md-offset-4">
-              <%= display_profile_picture(@image.imageable, 220, 220, "form_") %>
-            </div>
-            <% end %>
-          </div>
-        </div>
-        <script id="template-upload" type="text/x-tmpl">
-        </script>
-      </div>
-    </div>
-
-    <div class="modal-footer">
-      <div class="pull-left">
-        <%= f.label :image, "Click Here to Browse", :class => 'upload_image label-upload-image btn btn-orange-outline-a'  %>
-        <%= f.file_field :image, :style => 'display:none;', :class => 'jQueryBrowseImg' %>
-        <%= f.hidden_field :image_cache %>
-      </div>
-      <div class="pull-right">
-        <% button_text = "#{@image.new_record? ? "Create" : "Update"} Photo" %>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <%= submit_tag button_text, "data-reset-text"=>button_text, "data-loading-text"=>"Saving ...", :class=>"btn btn-primary ml-10" %>
-      </div>
-
-    </div>
-
-    <div class="cl-10"></div>
-
     <% end %>
+
+    <div class="add-photos-path ml-40 mt-20 mb-20">
+      <div class="row">
+        <div>
+          <% if @image.imageable.present? && @image.imageable.profile_picture.present? %>
+            <div class="m-10">
+              <%= image_tag @image.imageable.profile_picture.image.large.url %>
+            </div>
+          <% else %>
+            <div class="m-10">
+              <%= display_profile_picture(@image.imageable, 464, 464, nil, "") %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <script id="template-upload" type="text/x-tmpl">
+      </script>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <div class="pull-left">
+      <%= f.label :image, "Click Here to Browse", :class => 'upload_image label-upload-image btn btn-orange-outline-a'  %>
+      <%= f.file_field :image, :style => 'display:none;', :class => 'jQueryBrowseImg' %>
+      <%= f.hidden_field :image_cache %>
+    </div>
+    <div class="pull-right">
+      <% button_text = "#{@image.new_record? ? "Create" : "Update"} Photo" %>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      <%= submit_tag button_text, "data-reset-text"=>button_text, "data-loading-text"=>"Saving ...", :class=>"btn btn-primary ml-10" %>
+    </div>
+
+  </div>
+
+  <div class="cl-10"></div>
+
+<% end %>
 

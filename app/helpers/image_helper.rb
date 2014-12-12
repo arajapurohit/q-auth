@@ -27,13 +27,14 @@ module ImageHelper
     return image_tag photo.image_url, :style=>"width:#{width}px;", :width=>"#{width}", :class=>""
   end
 
-  def display_profile_picture(user, width=116, height=116, form=nil)
+  def display_profile_picture(user, width=116, height=116, form=nil, classes=nil)
+    classes = "mask-img-bdr-rounded" if classes.nil?
     if user && user.profile_picture.present?
-      content_tag :div, :class=>"mask-img-bdr-rounded", :style=>"width:#{width}px;height:#{height}px;" do
+      content_tag :div, :class=>classes, :style=>"width:#{width}px;height:#{height}px;" do
         image_tag user.profile_picture.image.thumb.url, :style=>"width:#{width}px;", :id=> display_profile_picture_id(user, form) ,:class => "profile" ,:alt => ''
       end
     else
-      content_tag :div, :class=>"mask-img-bdr-rounded", :style=>"width:#{width}px;height:#{height}px;" do
+      content_tag :div, :class=>classes, :style=>"width:#{width}px;height:#{height}px;" do
         image_tag "icons/default-user-116.png", :style=>"width:#{width}px;", :id => display_profile_picture_id(user, form),:alt => ''
       end
     end
