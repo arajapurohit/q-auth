@@ -40,7 +40,7 @@ describe Admin::DepartmentsController, :type => :controller do
 
   it "updates the requested department" do
     value = department
-    patch :update, {:id => department.id, :department => { :name => "User1", :description =>"Tested data"}}
+    patch :update, {:id => department.id, :department => { :name => "Dep1", :description =>"Some Responsibilities"}}
     expect(value).should_not eq(department)
   end
 
