@@ -1,22 +1,22 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Admin::DepartmentsController, :type => :controller do
 
   let(:admin_user) {FactoryGirl.create(:admin_user)}
+  let(:super_admin_user) {FactoryGirl.create(:super_admin_user, :name => "testuser", :username =>"username", :email =>"abcd@yopmail.com", :biography => "Hi this is lorem ipsum", :password =>  ConfigCenter::Defaults::PASSWORD, :password_confirmation =>  ConfigCenter::Defaults::PASSWORD, :user_type =>"super_admin" )}
   let(:department) {FactoryGirl.create(:department)}
   let(:department_1) {FactoryGirl.create(:department)}
-  let(:department_2) {FactoryGirl.create(:department)}
-
+  let(:department_1) {FactoryGirl.create(:department)}
 
   before(:each) do
-    session[:id] = admin_user.id
+    session[:id] = super_admin_user.id
   end
 
   it "POST #create" do
     department_params = {
       department: {
-        name: "User",
-        description: "Test Data"
+        name: "Department Name",
+        description: "Department responsibilities"
       }
     }
     post :create, department_params
@@ -24,9 +24,8 @@ describe Admin::DepartmentsController, :type => :controller do
   end
 
   it "assigns all get_collections as @departments" do
-    [department_1,department_2]
     get :index
-    assigns(:departments).should eq([department_1,department_2])
+    assigns(:departments).should eq([department])
   end
 
   it "GET #edit" do
