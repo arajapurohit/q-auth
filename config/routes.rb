@@ -52,7 +52,7 @@ QAuth::Application.routes.draw do
       resources :project_links
     end
 
-    resources :images do 
+    resources :images do
       collection do
        delete :destroy_pictures
      end

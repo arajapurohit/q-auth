@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :department do
-    name "Department Name"
+    name "Department name"
     description "Department responsibilities"
   end
 end

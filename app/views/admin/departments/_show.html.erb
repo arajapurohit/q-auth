@@ -22,6 +22,8 @@
 </div>
 
 
-<%= render :partial => "widgets/more_details", :locals=>{:data_model => @department,
-                      :edit_link => edit_admin_department_path(@department),
-                      :delete_link => admin_department_path(@department)} %>
+<%= render :partial => "widgets/more_details", :locals=>{
+    :data_model => @department,
+    :display_footer => true,
+    :edit_link => edit_admin_department_path(@department),
+    :delete_link => admin_department_path(@department)} %>

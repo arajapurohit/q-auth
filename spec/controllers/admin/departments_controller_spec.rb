@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe Admin::DepartmentsController, :type => :controller do
 
   let(:admin_user) {FactoryGirl.create(:admin_user)}
@@ -51,5 +50,4 @@ describe Admin::DepartmentsController, :type => :controller do
       delete :destroy, {:id => department.id}
     end.to change(Department, :count).by(-1)
   end
-
 end

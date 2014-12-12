@@ -23,5 +23,6 @@
 
 
 <%= render :partial => "widgets/more_details", :locals=>{:data_model => @designation,
-                      :edit_link => edit_admin_designation_path(@designation),
-                      :delete_link => admin_designation_path(@designation)} %>
+  :display_footer => true,
+  :edit_link => edit_admin_designation_path(@designation),
+  :delete_link => admin_designation_path(@designation)} %>

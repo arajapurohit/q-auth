@@ -5,15 +5,25 @@
   <%= render :partial=>"layouts/common/flash_message" %>
 <% end %>
 
-<div id="div_user_projects">
-  <%#= render :partial => "admin/users/projects/index", :locals=>{:user => @user} %>
+<div id="my_profile_panel" class="panel panel-archon mt-10">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <span class="my-profile-title">My Profile</span>
+      <span class="pull-right">
+      <% if @current_user.user_type != "admin" %>
+        <%= link_to "edit", user_edit_path, remote: true -%>
+      <% end %>
+      </span>
+    </h3>
+  </div>
+
+  <div class="panel-body clearfix">
+    <%= render partial: "show" %>
+  </div>
 </div>
 
-<%= render :partial => "widgets/more_details", :locals=>{:data_model => @user, 
-											:heading => "My Profile",
-                      :edit_link => edit_admin_user_path(@user),
-                      :delete_link => admin_user_path(@user),
-                  	  :data_columns => [:id, :name, :username, :email, :biography, :phone, :status, :skype, :linkedin, :city, :state, :country, :designation] } %>
+
+
 
 
 
