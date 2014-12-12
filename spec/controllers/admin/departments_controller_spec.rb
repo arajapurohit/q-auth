@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 describe Admin::DepartmentsController, :type => :controller do
 
   let(:admin_user) {FactoryGirl.create(:admin_user)}
