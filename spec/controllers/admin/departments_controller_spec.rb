@@ -49,4 +49,3 @@ describe Admin::DepartmentsController, :type => :controller do
     end.to change(Department, :count).by(-1)
   end
 end
-
