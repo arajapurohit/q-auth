@@ -12,7 +12,7 @@ set :log_level, :debug
 role :app, %w{deploy@54.69.36.26}
 role :web, %w{deploy@54.69.36.26}
 role :db, %w{deploy@54.69.36.26}
-server '54.69.198.73', roles: %w{:web, :app, :db}, user: 'deploy'
+server '54.69.36.26', roles: %w{:web, :app, :db}, user: 'deploy'
 
 set :ssh_options, {
    #verbose: :debug,
