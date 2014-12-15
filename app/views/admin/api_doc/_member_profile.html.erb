@@ -1,0 +1,36 @@
+<div id="member_profile">
+  <h4>Member Profile API</h4>
+  <p>This API will accept the auth token and user id and will return the member details.</p>
+  <p>URL: <code>GET /api/v1/members/:id</code></p>
+  <p>Header: <code>auth_token</code></p>
+  <p>Sample Response: <code><%= link_to "Click Here to toggle", "#member_profile", :onclick=>"$('#sr-mpr').toggle()" %></code></p>
+  <pre id='sr-mpr' style="display: none;">
+    {
+      "success": true,
+      "data": {
+        "id": 14,
+        "name": "Mark Harrington",
+        "username": "markharr",
+        "email": "mark@yopmail.com",
+        "biography": null,
+        "phone": "8916391623",
+        "skype": "mark",
+        "linkedin": "mark",
+        "city": "Denver",
+        "state": "Colorado",
+        "country": "United States",
+        "auth_token": "7f4a062c716633594cfa77ea8b2a367f",
+        "user_type": "",
+        "profile_image_url": "/uploads/image/profile_picture/image/49/Dr._Karthikeya_Varma.JPG",
+        "designation_title": "Chief Technology Officer",
+        "department_name": null,
+        "designation": {
+          "id": 15,
+          "title": "Chief Technology Officer",
+          "responsibilities": "Test Data"
+        }
+      }
+    }
+  </pre>
+
+</div>

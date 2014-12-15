@@ -5,6 +5,8 @@
     <li class="mt-10"><%= link_to "Sign Out", "#sign_out" %></li>
     <li class="mt-10"><%= link_to "My Profile", "#my_profile" %></li>
     <li class="mt-10"><%= link_to "Update Profile", "#update_profile" %></li>
+    <li class="mt-10"><%= link_to "Members List", "#members_list" %></li>
+    <li class="mt-10"><%= link_to "Member Profile", "#member_profile" %></li>
   </div>
   <div class="col-lg-10 col-lg-offset-2">
 
@@ -21,6 +23,10 @@
     <%= render partial: "my_profile" %>
     <div class="cl-20"></div>
     <%= render partial: "update_profile" %>
+    <div class="cl-20"></div>
+    <%= render partial: "members_list" %>
+    <div class="cl-20"></div>
+    <%= render partial: "member_profile" %>
     <div class="cl-20"></div>
   </div>
 </div>

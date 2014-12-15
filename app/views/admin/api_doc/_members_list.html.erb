@@ -1,0 +1,66 @@
+<div id="members_list">
+  <h4>Members API</h4>
+  <p>This API will accept the auth token and will return the list of members.</p>
+  <p>URL: <code>GET /api/v1/members</code></p>
+  <p>Header: <code>auth_token</code></p>
+  <p>Sample Response: <code><%= link_to "Click Here to toggle", "#members_list", :onclick=>"$('#sr-ml').toggle()" %></code></p>
+  <pre id='sr-ml' style="display: none;">
+    {
+      "success": true,
+      "data": [
+        {
+          "id": 8,
+          "name": "Akshay Simha",
+          "username": "asimha",
+          "email": "asimha@qwinixtech.com",
+          "biography": null,
+          "phone": "8892538433",
+          "skype": "akshaysimha",
+          "linkedin": "akshaysimha",
+          "city": "Mysore",
+          "state": "Karnataka",
+          "country": "India",
+          "auth_token": "e5de69b2be5c0d515fd0a535f4aa882a",
+          "user_type": "",
+          "profile_image_url": "/uploads/image/profile_picture/image/43/nagangal.jpg",
+          "designation_title": "Jr. Developer",
+          "department_name": "Ruby on Rails",
+          "department": {
+            "id": 9,
+            "name": "Ruby on Rails",
+            "description": "Test Description"
+          },
+          "designation": {
+            "id": 1,
+            "title": "Jr. Developer",
+            "responsibilities": "Test Data"
+          }
+        },
+        {
+          "id": 15,
+          "name": "Darshan Puttanaiah",
+          "username": "darshan",
+          "email": "darshan@yopmail.com",
+          "biography": null,
+          "phone": "7123713923",
+          "skype": "darshan",
+          "linkedin": "darshanputtannaiah",
+          "city": "Denver",
+          "state": "Colorado",
+          "country": "United States",
+          "auth_token": "21126a74267892b708bfe6f30d26ba90",
+          "user_type": "admin",
+          "profile_image_url": "/uploads/image/profile_picture/image/50/bhagavathi.jpg",
+          "designation_title": "Chief Executive Officer",
+          "department_name": null,
+          "designation": {
+            "id": 16,
+            "title": "Chief Executive Officer",
+            "responsibilities": "Test Data"
+          }
+        }
+      ]
+    }
+  </pre>
+
+</div>
