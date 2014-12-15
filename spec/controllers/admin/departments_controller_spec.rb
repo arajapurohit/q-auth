@@ -6,6 +6,7 @@ describe Admin::DepartmentsController, :type => :controller do
   let(:super_admin_user) {FactoryGirl.create(:super_admin_user, :name => "testuser", :username =>"username", :email =>"abcd@yopmail.com", :biography => "Hi this is lorem ipsum", :password =>  ConfigCenter::Defaults::PASSWORD, :password_confirmation =>  ConfigCenter::Defaults::PASSWORD, :user_type =>"super_admin" )}
   let(:department) {FactoryGirl.create(:department)}
 
+
   before(:each) do
     session[:id] = super_admin_user.id
   end
