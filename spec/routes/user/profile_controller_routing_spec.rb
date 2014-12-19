@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe User::SettingsController, :type => :controller do
+describe User::ProfileController, :type => :controller do
   it "index" do
     expect(:get => "/user/profile").to route_to(
       :controller => "user/profile",
